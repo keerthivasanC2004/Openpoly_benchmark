@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-06-23T00:00:00Z",
+  "status": "seed",
+  "source": "Curated seed; daily automation uses OpenAlex",
+  "lookback_days": 365,
+  "unresolved": [],
+  "items": [
+    {
+      "researcher_id": "amir-barati-farimani",
+      "author": "Amir Barati Farimani; Vani Nigam",
+      "title": "PolyAgent: Large Language Model Agent for Polymer Design",
+      "publication_date": "2026-01-23",
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2601.16376",
+      "relevance": "Polymer design, LLM agents and structure–property workflows",
+      "confidence": "high"
+    },
+    {
+      "researcher_id": "rampi-ramprasad",
+      "author": "Rampi Ramprasad and collaborators",
+      "title": "AI-assisted design of chemically recyclable polymers for food packaging",
+      "publication_date": "2025-11-03",
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2511.04704",
+      "relevance": "Sustainable polymers, virtual screening and experimental validation",
+      "confidence": "high"
+    },
+    {
+      "researcher_id": "rampi-ramprasad",
+      "author": "Rampi Ramprasad and collaborators",
+      "title": "An Informatics Framework for the Design of Sustainable, Chemically Recyclable, Synthetically-Accessible and Durable Polymers",
+      "publication_date": "2024-09-13",
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2409.15354",
+      "relevance": "Virtual forward synthesis, ML screening and lab validation",
+      "confidence": "high"
+    }
+  ]
+}
