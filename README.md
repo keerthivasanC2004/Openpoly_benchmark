@@ -44,7 +44,7 @@ python -m unittest discover -s tests -v
 python scripts/update_updates.py --lookback-days 120 --per-author 3 --max-items 60
 ```
 
-The updater uses only Python's standard library and writes `data/updates.json`.
+The updater uses only Python's standard library and writes `data/feed.json`.
 
 ## Publishing
 
