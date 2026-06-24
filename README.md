@@ -1,53 +1,46 @@
-# AI for Polymers — Researcher Radar
+# OpenPoly: A Benchmark Suite for Polymer Property Prediction
 
-A clean, responsive dashboard for tracking professors, principal investigators, and emerging researchers working at the intersection of artificial intelligence and polymer science.
+**OpenPoly** is a comprehensive, literature-derived benchmark platform designed to advance machine learning research in polymer science. It supports multi-property prediction across diverse chemical structures by providing a high-quality dataset of 3,985 polymer entries, each annotated with up to 26 experimentally measured properties. The benchmark facilitates the fair comparison of various learning paradigms under realistic, data-limited conditions commonly encountered in polymer informatics.
 
-## Live dashboard
+---
 
-After GitHub Pages is enabled, the site is published at:
+## Repository Structure
 
-**https://keerthivasanc2004.github.io/AI-for-polymers/**
+This repository offers all essential components for training, validating, and benchmarking deep learning models on polymer property prediction tasks:
 
-## Features
+- **`data/`**  
+  Contains curated datasets aligned with polymer backbones encoded via PSMILES. The dataset covers 26 distinct properties, totaling 3,985 structure–property pairs.
 
-- Search by researcher, institution, or topic.
-- Filter by influence tier, region, and verification status.
-- Responsive light/dark interface with no JavaScript framework or CDN dependency.
-- Daily publication discovery through the OpenAlex API.
-- Conservative author disambiguation using researcher names and institutional signals.
-- Automated tests before every deployment.
-- GitHub Pages deployment on every relevant push and daily at 03:15 UTC (06:15 Asia/Riyadh).
+- **`model/`**  
+  Includes PyTorch implementations of benchmarked models. External model sources used in this repository:
+  - [UniMol2](https://github.com/deepmodeling/Uni-Mol/tree/main/unimol2)
+  - [polyBERT](https://github.com/Ramprasad-Group/polyBERT)
+  - [TabPFN](https://github.com/PriorLabs/TabPFN)
 
-## Data quality
+- **`results/`**  
+  Stores quantitative performance metrics (Mean Squared Error, Mean Absolute Error, and Coefficient of Determination) for each model–property pair.
 
-The initial researcher list was seeded from a user-supplied compilation and reviewed where reliable evidence was available. Ambiguous identities and uncertain affiliations are explicitly marked **Needs review** instead of being silently presented as verified.
+- **`train_and_test_code/`**  
+  Provides reproducible training and evaluation scripts, including data preprocessing, hyperparameter tuning, and model evaluation protocols.
 
-The daily feed is intended for discovery. OpenAlex metadata can contain author, affiliation, or venue errors, so important records should be confirmed at the DOI or publisher page.
+---
 
-## Local preview
+## Model Availability
 
-```bash
-python -m http.server 8000
-```
+Due to the size of trained model files, all pre-trained weights (MLP, GCN, GAT, SphereNet, UniMol2, polyBERT, TabPFN, and XGBoost across 26 properties) are hosted on Zenodo and can be accessed via the following DOI:
 
-Then open `http://localhost:8000`.
+**[10.5281/zenodo.15551637](https://doi.org/10.5281/zenodo.15551637)**
 
-## Tests
+---
 
-```bash
-python -m unittest discover -s tests -v
-```
+## Citation
 
-## Refresh the publication feed
+If you use OpenPoly in your research, please cite:
 
-```bash
-python scripts/update_updates.py --lookback-days 120 --per-author 3 --max-items 60
-```
+> Wang, J. et al. OpenPoly: A Literature-Derived Polymer Database Empowering Benchmarking and Multi-Property Prediction. *In preparation*.
 
-The updater uses only Python's standard library and writes `data/feed.json`.
+---
 
-## Publishing
+## License
 
-The workflow in `.github/workflows/pages.yml` validates the updater, refreshes the publication feed, and deploys the repository root to GitHub Pages.
-
-In the repository settings, select **Pages → Build and deployment → Source → GitHub Actions** if it is not already enabled.
+This project is released under the MIT License. See the [`LICENSE`](./LICENSE) file for full terms.
